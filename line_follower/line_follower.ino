@@ -59,12 +59,6 @@ void loop() {
   int i5 = digitalRead(ir5);
   int i6 = digitalRead(ir6);
 
-  if (Serial.available() > 0) {
-    char inputvalue = char(Serial.read());
-    if (inputvalue == 'd') {
-      serial_debug_sensors(i1, i2, i3, i4, i5, i6);
-    }
-  }
 
   if (!i1 && i2 && i3 && i4 && i5 && i6) process_value = 1;
   else if (!i1 && !i2 && i3 && i4 && i5 && i6) process_value = 2;
@@ -140,14 +134,4 @@ void motor_drive(float left, float right) {
   }
 }
 
-//--------------- Sensor Debug -------------------
-void serial_debug_sensors(int i1, int i2, int i3, int i4, int i5, int i6) {
-  Serial.print(" val1: "); Serial.print(i1);
-  Serial.print(" val2: "); Serial.print(i2);
-  Serial.print(" val3: "); Serial.print(i3);
-  Serial.print(" val4: "); Serial.print(i4);
-  Serial.print(" val5: "); Serial.print(i5);
-  Serial.print(" val6: "); Serial.println(i6);
-  delay(5);
-}
 
