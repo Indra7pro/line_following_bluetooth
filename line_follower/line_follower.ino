@@ -120,18 +120,17 @@ void motor_drive(float left, float right) {
   if (left > 0) {
     pwmWrite(ml2, left);
     pwmWrite(ml1, 0);
-  } else {
+  }
+  else {
     pwmWrite(ml2, 0);
     pwmWrite(ml1, -left);
   }
-
   if (right > 0) {
     pwmWrite(mr2, right);
     pwmWrite(mr1, 0);
-  } else {
+  }
+  else {
     pwmWrite(mr2, 0);
     pwmWrite(mr1, -right);
   }
 }
-
-
